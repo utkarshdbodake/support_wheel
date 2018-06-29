@@ -24,9 +24,26 @@ class ScheduleMainPage extends StatelessWidget {
                   child: _buildList(context, scheduleBloc),
                 ),
                 Center(
-                  child: Opacity(
+                  child: AnimatedOpacity(
+                    duration: Duration(milliseconds: 300),
                     opacity: snapshot.data ? 1.0 : 0.0,
-                    child: LinearProgressIndicator(),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          width: MediaQuery.of(context).size.width / 2,
+                          child: LinearProgressIndicator(),
+                        ),
+                        SizedBox(height: 20.0),
+                        Text(
+                          'Loading...',
+                          style: TextStyle(
+                              color: Colors.teal,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
