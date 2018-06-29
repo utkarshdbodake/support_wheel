@@ -1,6 +1,6 @@
-# support_wheel
+# Scheduler
 
-Client for support wheel of fate
+Client for assigning employees to a support schedule based upon predefined rules.
 
 ![Finished App](https://github.com/utkarshdbodake/support_wheel/blob/master/Scheduler.gif)
 
