@@ -11,11 +11,9 @@ class ScheduleDao {
 
   static Future<ScheduleState> getSchedule(String date) async {
     return _httpClient
-        .post(
-          Uri.parse(_scheduleURL),
-          headers: {'x-api-key': constants.scheduleApiKey},
-          body: json.encode({'startDate': date ?? ''})
-        )
+        .post(Uri.parse(_scheduleURL),
+            headers: {'x-api-key': constants.scheduleApiKey},
+            body: json.encode({'startDate': date ?? ''}))
         .then((res) => res.body)
         .then(json.decode)
         .then((data) => ScheduleState.fromJSON(data))

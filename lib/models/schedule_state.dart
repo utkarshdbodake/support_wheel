@@ -36,28 +36,23 @@ class ScheduleState {
   ScheduleState.initial() : schedule = [];
 
   static ScheduleState fromJSON(Map<String, dynamic> data) {
-
     print(data);
 
     List<SingleDaySchedule> singleDaySchedules = [];
     int schedulePeriod = data["schedule"].length;
 
     for (int i = 0; i < schedulePeriod; i++) {
-
       List<Engineer> engineers = [];
       int totalEngineers = data["schedule"][i]["engineers"].length;
       for (int j = 0; j < totalEngineers; j++) {
         Engineer engineer = Engineer(
-          id: data["schedule"][i]["engineers"][j]["id"],
-          name: data["schedule"][i]["engineers"][j]["name"]
-        );
+            id: data["schedule"][i]["engineers"][j]["id"],
+            name: data["schedule"][i]["engineers"][j]["name"]);
         engineers.add(engineer);
       }
 
       SingleDaySchedule singleDaySchedule = SingleDaySchedule(
-          date: data["schedule"][i]["date"],
-          engineers: engineers
-      );
+          date: data["schedule"][i]["date"], engineers: engineers);
 
       singleDaySchedules.add(singleDaySchedule);
     }
